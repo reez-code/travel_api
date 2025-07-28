@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, ForeignKey, String, DateTime
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 from database import Base  
 
 class UserQuery(Base):
@@ -14,3 +15,10 @@ class UserQuery(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     transport_option_id = Column(Integer, ForeignKey("transport_options.id"), nullable=True)
     session_id = Column(String, index=True)
+
+    # Relationships
+    origin = relationship("City", foreign_keys=[origin_id])
+    destination = relationship("City", foreign_keys=[destination_id])
+    transport = relationship("TransportMean", foreign_keys=[transport_id])
+    transport_option = relationship("TransportOption", foreign_keys=[transport_option_id])
+    messages = relationship("Message", back_populates="user_query", cascade="all, delete-orphan")
