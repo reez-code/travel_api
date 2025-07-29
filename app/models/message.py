@@ -8,7 +8,7 @@ class Message(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     session_id = Column(String, index=True)
-    sender = Column(String)
+    sender = Column(String) # e.g., "user" or "system"
     content = Column(String)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     user_query_id = Column(Integer, ForeignKey("user_queries.id"), nullable=True)

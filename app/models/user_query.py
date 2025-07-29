@@ -17,8 +17,8 @@ class UserQuery(Base):
     session_id = Column(String, index=True)
 
     # Relationships
-    origin = relationship("City", foreign_keys=[origin_id])
-    destination = relationship("City", foreign_keys=[destination_id])
+    origin_city = relationship("City", foreign_keys=[origin_id], back_populates="origin_queries")
+    destination_city = relationship("City", foreign_keys=[destination_id], back_populates="destination_queries")
     transport = relationship("TransportMean", foreign_keys=[transport_id])
     transport_option = relationship("TransportOption", foreign_keys=[transport_option_id])
     messages = relationship("Message", back_populates="user_query", cascade="all, delete-orphan")
