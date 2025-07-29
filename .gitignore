@@ -1,6 +1,47 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Environment variables
 .env
+
+# SQLite database files
 *.sqlite3
 *.db
-__pycache__/
-instance/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Alembic compiled files
 alembic/versions/*.pyc
+
+# Alembic migration scripts — OPTIONAL
+# Only ignore if you're not tracking migrations in version control
+# Otherwise, remove this line to keep migration history
+# alembic/versions/
+
+# Flask-style instance folder (if used)
+instance/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Testing & coverage
+.coverage
+coverage.xml
+htmlcov/
+.cache/
+
+# VSCode config (optional)
+.vscode/
+
+# Pyright, Mypy, Ruff, etc. (if used)
+.mypy_cache/
+.pyright/
+ruff_cache/
