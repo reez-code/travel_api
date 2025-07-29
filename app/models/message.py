@@ -16,3 +16,6 @@ class Message(Base):
 
     # Relationship
     user_query = relationship("UserQuery", back_populates="messages")
+
+    def __repr__(self):
+        return f"<Message(session_id={self.session_id}, sender={self.sender}, content={self.content[:50]}...)>"

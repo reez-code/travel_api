@@ -14,3 +14,6 @@ class TransportOption(Base):
     means = relationship("TransportMean", back_populates="transport_options")
     routes = relationship("TransportRoute", back_populates="transport_option", cascade="all, delete-orphan")
     user_queries = relationship("UserQuery", back_populates="transport_option")
+
+    def __repr__(self):
+        return f"<TransportOption(name={self.name}, means_id={self.means_id})>"

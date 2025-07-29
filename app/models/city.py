@@ -21,3 +21,6 @@ class City(Base):
 
     origin_routes = relationship("TransportRoute", back_populates="origin_city", foreign_keys="TransportRoute.origin_city_id")
     destination_routes = relationship("TransportRoute", back_populates="destination_city", foreign_keys="TransportRoute.destination_city_id")
+
+    def __repr__(self):
+        return f"<City(name={self.name}, region={self.region}, country={self.country})>"

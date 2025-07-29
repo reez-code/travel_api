@@ -11,3 +11,6 @@ class TransportMean(Base):
     # Relationships
     transport_options = relationship("TransportOption", back_populates="means", cascade="all, delete-orphan")
     user_queries = relationship("UserQuery", back_populates="transport")
+
+    def __repr__(self):
+        return f"<TransportMean(name={self.name})>"

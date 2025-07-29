@@ -22,3 +22,6 @@ class UserQuery(Base):
     transport = relationship("TransportMean", foreign_keys=[transport_id])
     transport_option = relationship("TransportOption", foreign_keys=[transport_option_id])
     messages = relationship("Message", back_populates="user_query", cascade="all, delete-orphan")
+
+    def __repr__(self):
+        return f"<UserQuery(session_id={self.session_id}, origin={self.origin_city.name if self.origin_city else None}, destination={self.destination_city.name if self.destination_city else None}, budget={self.budget}, travel_date={self.travel_date})>"

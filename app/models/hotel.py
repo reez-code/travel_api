@@ -21,3 +21,6 @@ class Hotel(Base):
     # Relationship
     city = relationship("City", back_populates="hotels")
 
+    def __repr__(self):
+        return f"<Hotel(name={self.name}, city_id={self.city_id}, rating={self.rating})>"
+
